@@ -1,17 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   let [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://mai-shopping-cart-api.herokuapp.com/api/users")
-      .then(res => res.json())
-      .then(data => setUsers(data))
-      .catch(console.log);
-  });
+    axios
+      .get("https://mai-shopping-cart-api.herokuapp.com/api/users")
+      .then(response => setUsers(response.data))
+      .catch(error => console.log(error));
+  }, []);
 
   return (
     <div className="App">
