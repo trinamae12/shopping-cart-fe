@@ -5,10 +5,11 @@ import axios from "axios";
 
 function App() {
   let [users, setUsers] = useState([]);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     axios
-      .get("https://mai-shopping-cart-api.herokuapp.com/api/users")
+      .get(`${API_URL}/users`)
       .then(response => setUsers(response.data))
       .catch(error => console.log(error));
   }, []);
