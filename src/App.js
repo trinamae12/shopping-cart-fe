@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://mai-shopping-cart-api.herokuapp.com/api/users")
+      .get("https://mai-shopping-cart-api-staging.herokuapp.com/api/users")
       .then(response => setUsers(response.data))
       .catch(error => console.log(error));
   }, []);
